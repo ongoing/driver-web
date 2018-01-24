@@ -4,14 +4,14 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Web verification
+    | Symfony Web verification
     |--------------------------------------------------------------------------
     |
     | This array will be used to match incoming HTTP requests against your
-    | web endpoint, to see if the request should match the web driver.
+    | web endpoint, to see if the request should match the symfony web driver.
     |
     */
     'matchingData' => [
-        'driver' => 'web',
+        'driver' => 'symfony_web',
     ],
 ];

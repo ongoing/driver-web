@@ -5,7 +5,7 @@ namespace Tests;
 use Mockery as m;
 use BotMan\BotMan\Http\Curl;
 use PHPUnit_Framework_TestCase;
-use BotMan\Drivers\Web\WebDriver;
+use BotMan\Drivers\Web\SymfonyWebDriver;
 use BotMan\BotMan\Messages\Attachments\File;
 use BotMan\BotMan\Messages\Attachments\Audio;
 use BotMan\BotMan\Messages\Attachments\Image;
@@ -31,7 +31,7 @@ class WebDriverTest extends PHPUnit_Framework_TestCase
     /**
      * @param $responseData
      * @param null $htmlInterface
-     * @return WebDriver
+     * @return SymfonyWebDriver
      */
     private function getDriver($responseData, $htmlInterface = null)
     {
@@ -49,14 +49,14 @@ class WebDriverTest extends PHPUnit_Framework_TestCase
             ],
         ];
 
-        return new WebDriver($request, $config, $htmlInterface);
+        return new SymfonyWebDriver($request, $config, $htmlInterface);
     }
 
     /**
      * @param $responseData
      * @param array $files
      * @param null $htmlInterface
-     * @return WebDriver
+     * @return SymfonyWebDriver
      */
     private function getDriverWithFiles($responseData, $files, $htmlInterface = null)
     {
@@ -74,7 +74,7 @@ class WebDriverTest extends PHPUnit_Framework_TestCase
             ],
         ];
 
-        return new WebDriver($request, $config, $htmlInterface);
+        return new SymfonyWebDriver($request, $config, $htmlInterface);
     }
 
     /** @test */
@@ -120,7 +120,7 @@ class WebDriverTest extends PHPUnit_Framework_TestCase
         $driver = $this->getDriverWithFiles([
             'driver' => 'web',
             'userId' => '12345',
-            'attachment' => WebDriver::ATTACHMENT_IMAGE,
+            'attachment' => SymfonyWebDriver::ATTACHMENT_IMAGE,
         ], [
             'file1' => [
                 'name' => 'MyFile.png',
@@ -143,7 +143,7 @@ class WebDriverTest extends PHPUnit_Framework_TestCase
         $driver = $this->getDriverWithFiles([
             'driver' => 'web',
             'userId' => '12345',
-            'attachment' => WebDriver::ATTACHMENT_VIDEO,
+            'attachment' => SymfonyWebDriver::ATTACHMENT_VIDEO,
         ], [
             'file1' => [
                 'name' => 'MyFile.png',
@@ -166,7 +166,7 @@ class WebDriverTest extends PHPUnit_Framework_TestCase
         $driver = $this->getDriverWithFiles([
             'driver' => 'web',
             'userId' => '12345',
-            'attachment' => WebDriver::ATTACHMENT_AUDIO,
+            'attachment' => SymfonyWebDriver::ATTACHMENT_AUDIO,
         ], [
             'file1' => [
                 'name' => 'MyFile.png',
@@ -189,7 +189,7 @@ class WebDriverTest extends PHPUnit_Framework_TestCase
         $driver = $this->getDriverWithFiles([
             'driver' => 'web',
             'userId' => '12345',
-            'attachment' => WebDriver::ATTACHMENT_FILE,
+            'attachment' => SymfonyWebDriver::ATTACHMENT_FILE,
         ], [
             'file1' => [
                 'name' => 'MyFile.png',

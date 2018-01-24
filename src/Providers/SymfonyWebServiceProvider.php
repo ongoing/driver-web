@@ -2,12 +2,12 @@
 
 namespace BotMan\Drivers\Web\Providers;
 
-use BotMan\Drivers\Web\WebDriver;
+use BotMan\Drivers\Web\SymfonyWebDriver;
 use Illuminate\Support\ServiceProvider;
 use BotMan\BotMan\Drivers\DriverManager;
 use BotMan\Studio\Providers\StudioServiceProvider;
 
-class WebServiceProvider extends ServiceProvider
+class SymfonyWebServiceProvider extends ServiceProvider
 {
     /**
      * Perform post-registration booting of services.
@@ -20,10 +20,10 @@ class WebServiceProvider extends ServiceProvider
             $this->loadDrivers();
 
             $this->publishes([
-                __DIR__.'/../../stubs/web.php' => config_path('botman/web.php'),
+                __DIR__.'/../../stubs/symfony_web.php' => config_path('botman/symfony_web.php'),
             ]);
 
-            $this->mergeConfigFrom(__DIR__.'/../../stubs/web.php', 'botman.web');
+            $this->mergeConfigFrom(__DIR__.'/../../stubs/symfony_web.php', 'botman.symfony_web');
         }
     }
 
@@ -32,7 +32,7 @@ class WebServiceProvider extends ServiceProvider
      */
     protected function loadDrivers()
     {
-        DriverManager::loadDriver(WebDriver::class);
+        DriverManager::loadDriver(SymfonyWebDriver::class);
     }
 
     /**

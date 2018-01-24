@@ -18,9 +18,9 @@ use BotMan\BotMan\Messages\Incoming\IncomingMessage;
 use BotMan\BotMan\Messages\Outgoing\OutgoingMessage;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-class WebDriver extends HttpDriver
+class SymfonyWebDriver extends HttpDriver
 {
-    const DRIVER_NAME = 'Web';
+    const DRIVER_NAME = 'SymfonyWeb';
 
     const ATTACHMENT_IMAGE = 'image';
     const ATTACHMENT_AUDIO = 'audio';
