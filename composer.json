@@ -1,17 +1,20 @@
 {
-    "name": "botman/driver-web",
+    "name": "ongoing/driver-web",
     "license": "MIT",
-    "description": "Web driver for BotMan",
+    "description": "Symfony Web driver for BotMan",
     "keywords": [
         "Bot",
         "BotMan",
         "Web"
     ],
-    "homepage": "http://github.com/botman/driver-web",
+    "homepage": "http://github.com/ongoing/driver-web",
     "authors": [
         {
             "name": "Marcel Pociot",
             "email": "m.pociot@gmail.com"
+        }, {
+            "name": "Roger Wicki",
+            "email": "roger.wicki@ongoing.ch"
         }
     ],
     "require": {
@@ -41,10 +44,5 @@
         "cs": "php-cs-fixer fix"
     },
     "extra": {
-        "laravel": {
-            "providers": [
-                "BotMan\\Drivers\\Web\\Providers\\WebServiceProvider"
-            ]
-        }
     }
 }

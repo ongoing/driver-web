@@ -172,24 +172,25 @@ class WebDriver extends HttpDriver
         return $replyData;
     }
 
+
     /**
      * Send out message response.
      */
-    public function messagesHandled()
+    public function buildResponse()
     {
         $messages = $this->buildReply($this->replies);
 
         // Reset replies
         $this->replies = [];
 
-        Response::create(json_encode([
+        return Response::create(json_encode([
             'status' => $this->replyStatusCode,
             'messages' => $messages,
         ]), $this->replyStatusCode, [
             'Content-Type' => 'application/json',
             'Access-Control-Allow-Credentials' => true,
             'Access-Control-Allow-Origin' => '*',
-        ])->send();
+        ]);
     }
 
     /**
